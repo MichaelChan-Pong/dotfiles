@@ -237,5 +237,5 @@ let g:NERDTreeUpdateOnCursorHold = 0
 " indentLine
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 1
-" let g:indentLine_char = '|'
+let g:indentLine_char = '|'
 set list lcs=tab:\|\ 
