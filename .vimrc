@@ -53,6 +53,7 @@ Plug 'rking/ag.vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine'
+Plug 'nelstrom/vim-markdown-preview', { 'do': 'sh install.sh' }
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -234,8 +235,14 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " NERDTree Git Options
 let g:NERDTreeUpdateOnCursorHold = 0
 
+" Markdown keyboard shortcut
+map <Leader>p :Mm<CR>
+
+" NERDTreeToggle shortcut
+map <Leader>n :NERDTreeToggle<CR>
 " indentLine
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 1
 " let g:indentLine_char = '|'
 set list lcs=tab:\|\ 
+
