@@ -38,11 +38,11 @@ Plug 'ternjs/tern_for_vim',  { 'do': 'npm install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'isRuslan/vim-es6'
 Plug 'tpope/vim-fugitive'
-" Plug 'benjie/neomake-local-eslint.vim'
+Plug 'benjie/neomake-local-eslint.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'benmills/vimux'
@@ -52,8 +52,11 @@ Plug 'tpope/vim-obsession', { 'do' : 'vim -u NONE -c \"helptags vim-obsession/do
 Plug 'rking/ag.vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'nelstrom/vim-markdown-preview', { 'do': 'sh install.sh' }
+Plug 'mattn/emmet-vim'
+Plug 'chrisbra/Recover.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -91,12 +94,13 @@ map Q gq
 inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
+" if has('mouse')
+  " set mouse=a
+" endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
+colorscheme delek
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
@@ -223,14 +227,33 @@ map <Leader>bw :bwipeout<CR>
 
 " Disable search highlighting after search
 map <Leader>/ :noh<CR>
+
 " Shortcut to write
 map <Leader>w :w<CR>
+
+" Project searching
+nmap <Leader>gg :grep 
+nmap <silent> <Leader>gl :cnext<CR>
+nmap <silent> <Leader>gh :cprev<CR>
+
+" bind <Leader>d to grep word under cursor
+nnoremap <Leader>d :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Syntastic settings
 let g:syntastic_javascript_checkers=['eslint']
 
-" Silver Searcher
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c%m
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " NERDTree Git Options
 let g:NERDTreeUpdateOnCursorHold = 0
@@ -246,3 +269,12 @@ let g:indentLine_setConceal = 1
 " let g:indentLine_char = '|'
 set list lcs=tab:\|\ 
 
+" delimitmate new line on curly braces and stuff
+let delimitMate_expand_cr = 1
+
+" Indent Guides
+colorscheme delek
+set background=dark
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
