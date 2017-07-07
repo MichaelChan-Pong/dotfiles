@@ -2,7 +2,8 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mcp/.oh-my-zsh
+export ZSH=/home/mcp/.oh-my-zsh
+
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -156,3 +157,6 @@ function chpwd() {
 alias accessdocker="bash -c \"clear && DOCKER_HOST=tcp://192.168.99.100:2376 DOCKER_CERT_PATH=/Users/mcp/.docker/machine/machines/default DOCKER_TLS_VERIFY=1 /bin/zsh\""
 alias startdocker="docker start elasticsearch-2 epic_pare redis"
 alias stopdocker="docker stop elasticsearch-2 epic_pare redis"
+
+# added by travis gem
+[ -f /home/mcp/.travis/travis.sh ] && source /home/mcp/.travis/travis.sh

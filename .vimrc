@@ -57,6 +57,7 @@ Plug 'nelstrom/vim-markdown-preview', { 'do': 'sh install.sh' }
 Plug 'mattn/emmet-vim'
 Plug 'chrisbra/Recover.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -189,7 +190,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " allow powerline symbols
 let g:airline_powerline_fonts = 1
 
-" ctrlp respect .gitignore 
+" ctrlp respect .gitignore
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'public/', 'node_modules/']
 
 " change leader
@@ -206,6 +207,12 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable syntax highlighting for JSDocs
 let g:javascript_plugin_jsdoc = 1
+
+" remap home and end to esc cause my keyboard is weird
+imap <home> <esc>
+imap <end> <esc>
+map <home> <esc>
+map <end> <esc>
 
 " Shortcuts for Vimux
 map <Leader>rr :VimuxPromptCommand<CR>
@@ -232,7 +239,7 @@ map <Leader>/ :noh<CR>
 map <Leader>w :w<CR>
 
 " Project searching
-nmap <Leader>gg :grep 
+nmap <Leader>gg :grep
 nmap <silent> <Leader>gl :cnext<CR>
 nmap <silent> <Leader>gh :cprev<CR>
 
