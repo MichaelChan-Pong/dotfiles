@@ -26,7 +26,7 @@ call plug#begin()
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'        " status bar
 Plug 'vim-airline/vim-airline-themes' " status bar themes
@@ -38,7 +38,6 @@ Plug 'ternjs/tern_for_vim',  { 'do': 'npm install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'isRuslan/vim-es6'
 Plug 'tpope/vim-fugitive'
-Plug 'benjie/neomake-local-eslint.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -58,6 +57,7 @@ Plug 'mattn/emmet-vim'
 Plug 'chrisbra/Recover.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'digitaltoad/vim-pug'
+Plug 'christoomey/vim-conflicted'
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -285,3 +285,12 @@ set background=dark
 set ts=4 sw=4 et
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+
+" Diffget mappings
+" Use `gl` and `gu` rather than the default conflicted diffget mappings
+let g:diffget_local_map = '<Leader>ct'
+let g:diffget_upstream_map = '<Leader>cb'
+
+" Vim-Conflicted
+set stl+=%{ConflictedVersion()}
+
