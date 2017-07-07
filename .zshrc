@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/mcp/.oh-my-zsh
+export ZSH=/Users/mcp/.oh-my-zsh
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -159,4 +159,4 @@ alias startdocker="docker start elasticsearch-2 epic_pare redis"
 alias stopdocker="docker stop elasticsearch-2 epic_pare redis"
 
 # added by travis gem
-[ -f /home/mcp/.travis/travis.sh ] && source /home/mcp/.travis/travis.sh
+# [ -f /home/mcp/.travis/travis.sh ] && source /home/mcp/.travis/travis.sh
