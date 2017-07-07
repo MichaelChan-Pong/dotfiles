@@ -156,7 +156,7 @@ endif
 " enable line numbers
 set number
 " set relative line numbers
-set rnu
+" set rnu
 
 " Set airline theme
 let g:airline_theme='powerlineish'
