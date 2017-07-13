@@ -144,7 +144,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 if has('langmap') && exists('+langnoremap')
@@ -274,7 +274,7 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 1
 " let g:indentLine_char = '|'
-set list lcs=tab:\|\ 
+set list lcs=tab:\|\
 
 " delimitmate new line on curly braces and stuff
 let delimitMate_expand_cr = 1
