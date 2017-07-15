@@ -294,3 +294,18 @@ let g:diffget_upstream_map = '<Leader>cb'
 " Vim-Conflicted
 set stl+=%{ConflictedVersion()}
 
+" Tern stuff from Leo
+let g:deoplete#enable_at_startup = 1
+"let g:deoplete#omni#input_patterns = {}
+let g:deoplete#auto_complete_start_length = 2
+
+let g:tern_show_signature_in_pum = 0
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+" disable tern argument hints scratch window
+
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+" Clipboard
+set clipboard+=unnamedplus
