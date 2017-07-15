@@ -9,7 +9,7 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-set shiftwidth=4   " using tab will produce 2 spaces
+set shiftwidth=4   " using tab will produce 4 spaces
 set ruler          " display line and column number
 set noshowmode     " do not display current mode since airline plugin will
 set updatetime=750 " swapfile flush interval - also affects some plugins
@@ -25,7 +25,7 @@ set smarttab
 call plug#begin()
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
+" Plug 'garbas/vim-snipmate'
 " Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'        " status bar
@@ -45,8 +45,8 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'benmills/vimux'
-Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'tpope/vim-obsession', { 'do' : 'vim -u NONE -c \"helptags vim-obsession/doc\" -c q'}
+" Plug 'vim-ctrlspace/vim-ctrlspace'
+" Plug 'tpope/vim-obsession', { 'do' : 'vim -u NONE -c \"helptags vim-obsession/doc\" -c q'}
 " Plug 'vim-scripts/FuzzyFinder'
 Plug 'rking/ag.vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
@@ -57,7 +57,7 @@ Plug 'mattn/emmet-vim'
 Plug 'chrisbra/Recover.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'digitaltoad/vim-pug'
-Plug 'christoomey/vim-conflicted'
+" Plug 'christoomey/vim-conflicted'
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -209,10 +209,10 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:javascript_plugin_jsdoc = 1
 
 " remap home and end to esc cause my keyboard is weird
-imap <home> <esc>
-imap <end> <esc>
 map <home> <esc>
 map <end> <esc>
+map! <home> <esc>
+map! <end> <esc>
 
 " Shortcuts for Vimux
 map <Leader>rr :VimuxPromptCommand<CR>
