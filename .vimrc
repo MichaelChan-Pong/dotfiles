@@ -9,7 +9,7 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-set shiftwidth=4   " using tab will produce 4 spaces
+set shiftwidth=2   " using tab will produce 2 spaces
 set ruler          " display line and column number
 set noshowmode     " do not display current mode since airline plugin will
 set updatetime=750 " swapfile flush interval - also affects some plugins
@@ -17,7 +17,7 @@ set hidden         " allow buffers that are not visible to remain open
 set ignorecase     " ignore case when searching
 set smartcase      " don't ignore case when capital letters are in search
 set undolevels=20000               " max number of undos
-set tabstop=4
+set tabstop=2
 set expandtab
 set smarttab
 
@@ -45,7 +45,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'benmills/vimux'
-" Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 " Plug 'tpope/vim-obsession', { 'do' : 'vim -u NONE -c \"helptags vim-obsession/doc\" -c q'}
 " Plug 'vim-scripts/FuzzyFinder'
 Plug 'rking/ag.vim'
@@ -94,14 +94,12 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-" if has('mouse')
-  " set mouse=a
-" endif
+" Disable the mouse cause it's a pain in the buttocks
+set mouse=
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-colorscheme delek
+colorscheme elflord
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
@@ -217,8 +215,11 @@ map! <end> <esc>
 " Shortcuts for Vimux
 map <Leader>rr :VimuxPromptCommand<CR>
 map <Leader>rt :VimuxRunCommand("npm run test")<CR>
-map <Leader>rc :VimuxCloseRunner<CR>
+map <Leader>rs :VimuxRunCommand("npm start")<CR>
+map <Leader>rw :VimuxCloseRunner<CR>
 map <Leader>ri :VimuxInspectRunner<CR>
+map <Leader>k :VimuxScrollUpInspect<CR>
+map <Leader>j :VimuxScrollDownInspect<CR>
 
 " Tab shortcuts
 map <Leader>tl :tabnext<CR>
@@ -239,7 +240,7 @@ map <Leader>/ :noh<CR>
 map <Leader>w :w<CR>
 
 " Project searching
-nmap <Leader>gg :grep
+nmap <Leader>gg :Ag 
 nmap <silent> <Leader>gl :cnext<CR>
 nmap <silent> <Leader>gh :cprev<CR>
 
@@ -280,9 +281,8 @@ set list lcs=tab:\|\
 let delimitMate_expand_cr = 1
 
 " Indent Guides
-colorscheme delek
 set background=dark
-set ts=4 sw=4 et
+set ts=2 sw=2 et
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
@@ -309,3 +309,7 @@ autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " Clipboard
 set clipboard+=unnamedplus
+
+" Emmet
+let g:user_emmet_mode='a'
+let g:user_emmet_leader_key='<C-C>'

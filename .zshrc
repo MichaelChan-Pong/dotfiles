@@ -153,10 +153,15 @@ function chpwd() {
     ls -A
 }
 
-#Docker alias
-alias accessdocker="bash -c \"clear && DOCKER_HOST=tcp://192.168.99.100:2376 DOCKER_CERT_PATH=/Users/mcp/.docker/machine/machines/default DOCKER_TLS_VERIFY=1 /bin/zsh\""
-alias startdocker="docker start elasticsearch-2 epic_pare redis"
-alias stopdocker="docker stop elasticsearch-2 epic_pare redis"
+# Match node path with npm
+# export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v7.0.0/lib/node_modules
+export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.2/lib/node_modules
+
+# Dvorak + caps lock and escape swap
+setxkbmap -layout us -variant dvp -option caps:swapescape
+
+# Set default text editor
+export EDITOR=/usr/bin/nvim
 
 # added by travis gem
 # [ -f /home/mcp/.travis/travis.sh ] && source /home/mcp/.travis/travis.sh
