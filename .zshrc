@@ -155,7 +155,8 @@ function chpwd() {
 
 # Match node path with npm
 # export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v7.0.0/lib/node_modules
-export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.2/lib/node_modules
+# export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.2/lib/node_modules
+export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.3/lib/node_modules
 
 # Dvorak + caps lock and escape swap
 setxkbmap -layout us -variant dvp -option caps:swapescape

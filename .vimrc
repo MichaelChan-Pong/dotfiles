@@ -20,6 +20,7 @@ set undolevels=20000               " max number of undos
 set tabstop=2
 set expandtab
 set smarttab
+set scrolloff=3
 
 " Plugged
 call plug#begin()
@@ -292,7 +293,7 @@ let g:diffget_local_map = '<Leader>ct'
 let g:diffget_upstream_map = '<Leader>cb'
 
 " Vim-Conflicted
-set stl+=%{ConflictedVersion()}
+" set stl+=%{ConflictedVersion()}
 
 " Tern stuff from Leo
 let g:deoplete#enable_at_startup = 1
