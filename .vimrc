@@ -35,11 +35,11 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'             " file fuzzyfinder
 Plug 'ervandew/supertab'              " smart tab triggered autocomplete
 Plug 'scrooloose/syntastic'
-Plug 'ternjs/tern_for_vim',  { 'do': 'npm install' }
+" Plug 'ternjs/tern_for_vim',  { 'do': 'npm install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'isRuslan/vim-es6'
 Plug 'tpope/vim-fugitive'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+" Plug 'carlitux/deoplete-ternjs' { 'do': 'npm install -g tern' }
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -59,6 +59,8 @@ Plug 'chrisbra/Recover.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'digitaltoad/vim-pug'
 " Plug 'christoomey/vim-conflicted'
+Plug 'wakatime/vim-wakatime'
+Plug 'tpope/vim-classpath'
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -177,8 +179,8 @@ highlight NeoMakeWarningSign ctermfg=214 cterm=underline
 highlight NeoMakeWarningDefault ctermfg=214 cterm=underline
 
 " Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = ["--persistent"]
 
 " vim-airline show buffers by default
 let g:airline#extensions#tabline#enabled = 1
@@ -296,17 +298,17 @@ let g:diffget_upstream_map = '<Leader>cb'
 " set stl+=%{ConflictedVersion()}
 
 " Tern stuff from Leo
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#omni#input_patterns = {}
-let g:deoplete#auto_complete_start_length = 2
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#omni#input_patterns = {}
+" let g:deoplete#auto_complete_start_length = 2
 
-let g:tern_show_signature_in_pum = 0
-let g:tern_show_argument_hints = 'on_hold'
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+" let g:tern_show_signature_in_pum = 0
+" let g:tern_show_argument_hints = 'on_hold'
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = ["--persistent"]
 " disable tern argument hints scratch window
 
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+" autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " Clipboard
 set clipboard+=unnamedplus
@@ -314,3 +316,6 @@ set clipboard+=unnamedplus
 " Emmet
 let g:user_emmet_mode='a'
 let g:user_emmet_leader_key='<C-C>'
+
+" Syntastic
+let g:syntastic_cpp_compiler_options = ' -std=c++11' 

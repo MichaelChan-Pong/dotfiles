@@ -1,5 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/mcp/.oh-my-zsh
@@ -147,6 +145,9 @@ eval "$(direnv hook zsh)"
 #alias vim to nvim
 alias vim="nvim"
 
+#alias python3 to p
+alias p="python3"
+
 #ls each time a cd is done
 function chpwd() {
     emulate -L zsh
@@ -156,7 +157,8 @@ function chpwd() {
 # Match node path with npm
 # export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v7.0.0/lib/node_modules
 # export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.2/lib/node_modules
-export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.3/lib/node_modules
+# export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.3/lib/node_modules
+export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v8.1.2/lib/node_modules
 
 # Dvorak + caps lock and escape swap
 setxkbmap -layout us -variant dvp -option caps:swapescape
@@ -166,3 +168,7 @@ export EDITOR=/usr/bin/nvim
 
 # added by travis gem
 # [ -f /home/mcp/.travis/travis.sh ] && source /home/mcp/.travis/travis.sh
+
+# Go
+export GOROOT=/usr/local/go
+export PATH=$HOME/bin:/usr/local/bin:$HOME/intelFPGA_lite/17.1/quartus/bin:$GOROOT/bin:$PATH
