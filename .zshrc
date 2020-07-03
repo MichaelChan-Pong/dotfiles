@@ -147,6 +147,7 @@ alias vim="nvim"
 
 #alias python3 to p
 alias p="python3"
+alias py="python3"
 
 #ls each time a cd is done
 function chpwd() {
@@ -155,13 +156,9 @@ function chpwd() {
 }
 
 # Match node path with npm
-# export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v7.0.0/lib/node_modules
-# export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.2/lib/node_modules
-# export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v6.11.3/lib/node_modules
-export NODE_PATH=$NODE_PATH:/home/mcp/.nvm/versions/node/v8.1.2/lib/node_modules
 
 # Dvorak + caps lock and escape swap
-setxkbmap -layout us -variant dvp -option caps:swapescape
+# setxkbmap -layout us -variant dvp -option caps:swapescape
 
 # Set default text editor
 export EDITOR=/usr/bin/nvim
@@ -172,3 +169,34 @@ export EDITOR=/usr/bin/nvim
 # Go
 export GOROOT=/usr/local/go
 export PATH=$HOME/bin:/usr/local/bin:$HOME/intelFPGA_lite/17.1/quartus/bin:$GOROOT/bin:$PATH
+
+# SSH client
+# eval "$(ssh-agent -s)"
+# ssh-add /etc/.ssh/id_rsa
+# ssh-add /etc/.ssh/id_rsa_do
+
+# added by Anaconda3 2018.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/etc/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/etc/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/etc/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/etc/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
+
+# Umlet
+export UMLET_HOME="/opt/Umlet"
+
+# Java classpath
+# export CLASSPATH=/usr/share/java/junit-jupiter.jar:/usr/share/java/junit-jupiter-api.jar:/usr/share/java/junit-standalone.jar:.
+export CLASSPATH=/usr/share/java/junit-standalone.jar:.
+# JUnit
+alias junit="java -jar /usr/share/java/junit-standalone.jar -cp=. --scan-classpath"

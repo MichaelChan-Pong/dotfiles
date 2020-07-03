@@ -9,7 +9,7 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-set shiftwidth=2   " using tab will produce 2 spaces
+set shiftwidth=4   " using tab will produce 4 spaces
 set ruler          " display line and column number
 set noshowmode     " do not display current mode since airline plugin will
 set updatetime=750 " swapfile flush interval - also affects some plugins
@@ -17,7 +17,7 @@ set hidden         " allow buffers that are not visible to remain open
 set ignorecase     " ignore case when searching
 set smartcase      " don't ignore case when capital letters are in search
 set undolevels=20000               " max number of undos
-set tabstop=2
+set tabstop=4
 set expandtab
 set smarttab
 set scrolloff=3
@@ -27,7 +27,7 @@ call plug#begin()
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'garbas/vim-snipmate'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'        " status bar
 Plug 'vim-airline/vim-airline-themes' " status bar themes
@@ -35,11 +35,11 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'             " file fuzzyfinder
 Plug 'ervandew/supertab'              " smart tab triggered autocomplete
 Plug 'scrooloose/syntastic'
-" Plug 'ternjs/tern_for_vim',  { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim',  { 'do': 'npm install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'isRuslan/vim-es6'
 Plug 'tpope/vim-fugitive'
-" Plug 'carlitux/deoplete-ternjs' { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -61,6 +61,24 @@ Plug 'digitaltoad/vim-pug'
 " Plug 'christoomey/vim-conflicted'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-classpath'
+Plug 'mxw/vim-jsx'
+" Plug 'SirVer/ultisnips'
+" Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
+Plug 'terryma/vim-multiple-cursors'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" For async completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" For Denite features
+Plug 'Shougo/denite.nvim'
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 call plug#end()
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -179,8 +197,8 @@ highlight NeoMakeWarningSign ctermfg=214 cterm=underline
 highlight NeoMakeWarningDefault ctermfg=214 cterm=underline
 
 " Use tern_for_vim.
-" let g:tern#command = ["tern"]
-" let g:tern#arguments = ["--persistent"]
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 
 " vim-airline show buffers by default
 let g:airline#extensions#tabline#enabled = 1
@@ -201,7 +219,7 @@ let mapleader = " "
 let g:NERDSpaceDelims = 1
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
+" let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
@@ -210,15 +228,17 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:javascript_plugin_jsdoc = 1
 
 " remap home and end to esc cause my keyboard is weird
-map <home> <esc>
-map <end> <esc>
-map! <home> <esc>
-map! <end> <esc>
+" map <home> <esc>
+" map <end> <esc>
+" map! <home> <esc>
+" map! <end> <esc>
 
 " Shortcuts for Vimux
 map <Leader>rr :VimuxPromptCommand<CR>
 map <Leader>rt :VimuxRunCommand("npm run test")<CR>
 map <Leader>rs :VimuxRunCommand("npm start")<CR>
+map <Leader>rp :VimuxRunCommand("python3 " . @%)<CR>
+map <Leader>rc :VimuxInterruptRunner<CR>
 map <Leader>rw :VimuxCloseRunner<CR>
 map <Leader>ri :VimuxInspectRunner<CR>
 map <Leader>k :VimuxScrollUpInspect<CR>
@@ -243,7 +263,7 @@ map <Leader>/ :noh<CR>
 map <Leader>w :w<CR>
 
 " Project searching
-nmap <Leader>gg :Ag 
+nmap <Leader>gg :Ag
 nmap <silent> <Leader>gl :cnext<CR>
 nmap <silent> <Leader>gh :cprev<CR>
 
@@ -284,10 +304,10 @@ set list lcs=tab:\|\
 let delimitMate_expand_cr = 1
 
 " Indent Guides
-set background=dark
-set ts=2 sw=2 et
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+" set background=dark
+" set ts=2 sw=2 et
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
 
 " Diffget mappings
 " Use `gl` and `gu` rather than the default conflicted diffget mappings
@@ -298,9 +318,9 @@ let g:diffget_upstream_map = '<Leader>cb'
 " set stl+=%{ConflictedVersion()}
 
 " Tern stuff from Leo
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " let g:deoplete#omni#input_patterns = {}
-" let g:deoplete#auto_complete_start_length = 2
+let g:deoplete#auto_complete_start_length = 2
 
 " let g:tern_show_signature_in_pum = 0
 " let g:tern_show_argument_hints = 'on_hold'
@@ -318,4 +338,10 @@ let g:user_emmet_mode='a'
 let g:user_emmet_leader_key='<C-C>'
 
 " Syntastic
-let g:syntastic_cpp_compiler_options = ' -std=c++11' 
+" let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+" Error message color
+highlight SyntasticError ctermfg=15 ctermbg=4 guifg=White guibg=Blue
+
+" Remove trailing whitespace
+command TrimWhitespace BufWritePre * %s/\s\+$//e
