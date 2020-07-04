@@ -140,7 +140,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #direnv stuff
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 #alias vim to nvim
 alias vim="nvim"
