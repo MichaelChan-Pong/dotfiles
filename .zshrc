@@ -200,3 +200,6 @@ export UMLET_HOME="/opt/Umlet"
 export CLASSPATH=/usr/share/java/junit-standalone.jar:.
 # JUnit
 alias junit="java -jar /usr/share/java/junit-standalone.jar -cp=. --scan-classpath"
+
+# FZF
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
