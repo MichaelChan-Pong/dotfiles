@@ -16,4 +16,5 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Recover.vim'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 call plug#end()

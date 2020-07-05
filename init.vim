@@ -30,6 +30,7 @@ set termguicolors
 set mouse=
 set clipboard+=unnamedplus
 set hidden
+set updatetime=50
 
 " Theme - gruvbox
 set background=dark
