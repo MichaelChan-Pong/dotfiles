@@ -1,9 +1,12 @@
 {
-  "explorer.width": 30,
+  "explorer.width": 60,
   "explorer.previewAction.onHover": false,
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings": {
     "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
     "v": "open:vsplit"
-  }
+  },
+  "powershell.integratedConsole.showOnStartup": false,
+  "xml.java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+  "coc.preferences.jumpCommand": "tabe"
 }

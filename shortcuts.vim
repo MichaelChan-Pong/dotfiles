@@ -10,6 +10,9 @@ map <Leader>bh :bprevious<CR>
 map <Leader>bn :new<CR>
 map <Leader>bw :bwipeout<CR>
 
+" Erase trailing whitespace
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
 " Disable search highlighting after search
 map <Leader>/ :noh<CR>
 
@@ -36,3 +39,6 @@ nnoremap <leader>m :Marks<CR>
 
 " Undotree
 map <leader>u :UndotreeToggle<CR>
+
+" Table Mode
+map <leader>\ :TableModeToggle<CR>

@@ -7,6 +7,7 @@ source ~/.config/nvim/plug.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/shortcuts.vim
+source ~/.config/nvim/startify.vim
 
 set noerrorbells
 set noshowmode " airline will show the mode
@@ -30,7 +31,8 @@ set termguicolors
 set mouse=
 set clipboard+=unnamedplus
 set hidden
-set updatetime=50
+set updatetime=500
+set list lcs=tab:..
 
 " Theme - gruvbox
 set background=dark
@@ -56,3 +58,12 @@ let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace wh
 
 " delimitMate
 let delimitMate_expand_cr = 1
+
+" fitnesse.vim
+function! SetFitnesse()
+    if index(split(expand('%:p'),'/'), 'FitNesseRoot') != -1
+        set filetype=fitnesse
+    endif
+endfunction
+
+autocmd FileType text call SetFitnesse()
