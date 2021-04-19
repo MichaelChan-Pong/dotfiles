@@ -12,7 +12,7 @@ let g:startify_bookmarks = [
             \ { 'c': '~/.config/nvim/coc.vim' },
             \ { 'p': '~/.config/nvim/plug.vim' },
             \ { 'z': '~/.zshrc' },
-            \ { 'a': '/c/Users/mchanpong/AppData/Roaming/alacritty/alacritty.yml' }
+            \ { 'a': '/mnt/c/Users/mchanpon/AppData/Roaming/alacritty/alacritty.yml' }
             \ ]
 
 let g:startify_session_delete_buffers = 1
