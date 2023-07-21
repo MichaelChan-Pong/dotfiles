@@ -21,3 +21,7 @@ tags
 .tern-port
 
 node_modules
+
+nvim/undodir
+nvim/plugin
+nvim/plugged

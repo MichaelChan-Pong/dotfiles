@@ -24,10 +24,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # alias vim to nvim
 alias vim="nvim"
-
-# alias python3 to p
-alias p="python3"
-alias py="python3"
+alias vmi="nvim"
 
 # ls each time a cd is done
 function chpwd() {
@@ -43,3 +40,35 @@ export EDITOR=/usr/bin/nvim
 
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
+# Golang
+export PATH="$PATH:/usr/local/go/bin"
+
+# WSL environment workaround
+# TEMP="$PATH"
+# while read line; do export $line; done < /etc/environment
+# export PATH="$TEMP"
+
+# Python
+
+# alias python3 to p
+alias p="python3"
+alias py="python3"
+
+# requirements.txt
+alias export_requirements="pip3 freeze > requirements.txt"
+alias import_requirements="pip3 install -r requirements.txt"
+
+# Direnv
+eval "$(direnv hook zsh)"
+
+# Autolaunch tmux
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+# Otherwise start tmux
+[[ -z "$TMUX" ]] && exec tmux
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
