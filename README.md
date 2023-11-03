@@ -6,5 +6,4 @@ oh-my-zsh
 ripgrep
 powerline
 tig
-vim-plug
 nvm
