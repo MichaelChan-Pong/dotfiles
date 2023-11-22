@@ -3,16 +3,9 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
 
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')

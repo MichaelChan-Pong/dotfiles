@@ -5,7 +5,7 @@ if not mason_status_ok then
 end
 local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lspconfig_status_ok then
-  vim.notify("mason not found!")
+  vim.notify("mason-lspconfig not found!")
   return
 end
 
@@ -13,13 +13,14 @@ local servers = {
   "lua_ls",
   "cssls",
   "html",
-  "tsserver",
+  "vtsls",
   "pyright",
   "jsonls",
   "yamlls",
   "volar",
   "emmet_ls",
-  "esbonio"
+  "esbonio",
+  "gopls"
 }
 
 mason.setup()
@@ -27,7 +28,7 @@ mason_lspconfig.setup()
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
-  vim.notify("mason-lspconfig not found!")
+  vim.notify("lspconfig not found!")
   return
 end
 
