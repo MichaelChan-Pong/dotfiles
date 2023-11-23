@@ -1,6 +1,6 @@
-require('impatient')
 require('mcp.set')
 require('mcp.packer')
+require('impatient')
 require('mcp.colorscheme')
 require('mcp.cmp')
 require('mcp.lsp')

@@ -72,3 +72,7 @@ eval "$(direnv hook zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# bob
+export PATH="$PATH:/home/mcp/.local/share/bob/nvim-bin"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
