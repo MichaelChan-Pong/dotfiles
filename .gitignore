@@ -25,3 +25,6 @@ node_modules
 nvim/undodir
 nvim/plugin
 nvim/plugged
+
+.intel.zshrc
+tmux-powerline/location.sh

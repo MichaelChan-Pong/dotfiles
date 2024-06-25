@@ -195,6 +195,5 @@
 	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
 	# Your location
 	# Latitude and Longtitude for use with yr.no
-	export TMUX_POWERLINE_SEG_WEATHER_LAT=""
-	export TMUX_POWERLINE_SEG_WEATHER_LON=""
+	source location.sh
 # }

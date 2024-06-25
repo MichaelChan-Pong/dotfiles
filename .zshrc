@@ -44,11 +44,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 # Golang
 export PATH="$PATH:/usr/local/go/bin"
 
-# WSL environment workaround
-# TEMP="$PATH"
-# while read line; do export $line; done < /etc/environment
-# export PATH="$TEMP"
-
 # Python
 
 # alias python3 to p
@@ -72,3 +67,6 @@ eval "$(direnv hook zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Intel
+source .intel.zshrc

@@ -41,7 +41,14 @@ local kind_icons = {
     Event = "",
     Operator = "",
     TypeParameter = "",
+    Copilot = "",
 }
+
+-- local has_words_before = function()
+--   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+--   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+--   return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+-- end
 
 cmp.setup({
     snippet = {
@@ -63,7 +70,7 @@ cmp.setup({
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif luasnip.expandable() then
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
@@ -95,6 +102,7 @@ cmp.setup({
         format = function(entry, vim_item)
             vim_item.kind = kind_icons[vim_item.kind]
             vim_item.menu = ({
+                copilot = "Copilot",
                 nvim_lsp = "LSP",
                 nvim_lua = "Nvim Lua",
                 luasnip = "Snippet",
@@ -105,6 +113,7 @@ cmp.setup({
         end,
     },
     sources = {
+        { name = "copilot" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" },

@@ -50,8 +50,8 @@ keymap("n", "<F5>", ":let _s=@/ <Bar> :%s/\\s\\+$//e <Bar> :let @/=_s <Bar> :noh
 
 -- Vimux
 keymap("n", "<Leader>rr", ":VimuxPromptCommand<CR>", opts)
-keymap("n", "<Leader>rt", ":VimuxRunCommand(\"npm run test\")<CR>", opts)
-keymap("n", "<Leader>rs", ":VimuxRunCommand(\"npm start\")<CR>", opts)
+keymap("n", "<Leader>rt", ":VimuxRunCommand(\"dotnet test\")<CR>", opts)
+keymap("n", "<Leader>rs", ":VimuxRunCommand(\"dotnet run\")<CR>", opts)
 keymap("n", "<Leader>rc", ":VimuxInterruptRunner<CR>", opts)
 keymap("n", "<Leader>rw", ":VimuxCloseRunner<CR>", opts)
 keymap("n", "<Leader>ri", ":VimuxInspectRunner<CR>", opts)
@@ -72,6 +72,9 @@ keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts)
 
 -- Nvimtree
 keymap("n", "<Leader>n", ":NvimTreeToggle<CR>", opts)
+
+-- vim-table-mode
+keymap("n", "<Leader>\\", ":TableModeToggle<CR>", opts)
 
 -- Visual --
 -- Better paste

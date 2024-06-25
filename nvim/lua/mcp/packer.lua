@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'goolord/alpha-nvim'
   use 'nvim-lualine/lualine.nvim'
+  use 'dhruvasagar/vim-table-mode'
 
   -- Commenting
   use 'numToStr/Comment.nvim'
@@ -109,4 +110,42 @@ return require('packer').startup(function(use)
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
+
+  -- Copilot
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          enabled = false,
+        },
+        suggestion = {
+          enabled = false,
+        },
+        filetypes = {
+          yaml = true,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = 'node', -- Node.js version must be > 18.x
+        server_opts_overrides = {},
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use 'AndreM222/copilot-lualine'
 end)

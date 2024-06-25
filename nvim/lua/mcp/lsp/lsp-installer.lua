@@ -20,7 +20,8 @@ local servers = {
   "volar",
   "emmet_ls",
   "esbonio",
-  "gopls"
+  "gopls",
+  "csharp_ls"
 }
 
 mason.setup()

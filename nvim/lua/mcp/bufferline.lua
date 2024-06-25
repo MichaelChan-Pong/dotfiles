@@ -12,5 +12,6 @@ bufferline.setup({
     diagnostics = 'nvim_lsp',
     show_close_icon = false,
     sort_by = 'tabs',
+    separator_style = 'slant',
   },
 })
