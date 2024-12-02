@@ -115,7 +115,7 @@ return {
         desc = "Find Files",
       },
       {
-        "<Leader>g",
+        "<Leader>g/",
         function()
           require("telescope.builtin").live_grep()
         end,
@@ -158,6 +158,12 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "s1n7ax/nvim-window-picker",
+      config = function()
+        require("window-picker").setup()
+      end,
+    },
     opts = {
       filesystem = {
         filtered_items = {
@@ -203,4 +209,11 @@ return {
       }
     }
   },
+  {
+    "folke/snacks.nvim",
+    keys = {
+      { "<leader>h", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+      { "<leader>H", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+    },
+  };
 }
