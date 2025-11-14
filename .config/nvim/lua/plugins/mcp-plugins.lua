@@ -10,138 +10,27 @@ return {
       "TmuxNavigatePrevious",
     },
     keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+      { "<c-h>", vim.cmd.TmuxNavigateLeft },
+      { "<c-j>", vim.cmd.TmuxNavigateDown },
+      { "<c-k>", vim.cmd.TmuxNavigateUp },
+      { "<c-l>", vim.cmd.TmuxNavigateRight },
     },
   },
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   cmd = {
-  --     "NvimTreeToggle",
-  --   },
-  --   config = function()
-  --     require("nvim-tree").setup({
-  --       diagnostics = {
-  --         enable = true,
-  --         show_on_dirs = true,
-  --       },
-  --       view = {
-  --         width = 40,
-  --         side = "left",
-  --       },
-  --       sync_root_with_cwd = true,
-  --       respect_buf_cwd = true,
-  --       update_focused_file = {
-  --         enable = true,
-  --         update_root = true,
-  --       },
-  --     })
-  --   end,
-  --   keys = {
-  --     {
-  --       "<Leader>n",
-  --       function()
-  --         vim.cmd([[NvimTreeToggle]])
-  --       end,
-  --       mode = { "n", "t" },
-  --       desc = "Toggle nvim-tree",
-  --     },
-  --   },
-  -- },
+  {
+    "mbbill/undotree",
+    cmd = {
+      "UndotreeToggle",
+    },
+    keys = {
+      { "<Leader>u", vim.cmd.UndotreeToggle },
+    },
+  },
 
   -- Modify existing plugins
   {
     "ahmedkhalf/project.nvim",
     opts = {
       manual_mode = false,
-    },
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    config = function()
-      require("telescope").setup{
-        defaults = {
-          vimgrep_arguments = {
-            "rg",
-            "--follow",        -- Follow symbolic links
-            "--hidden",        -- Search for hidden files
-            "--no-heading",    -- Don't group matches by each file
-            "--with-filename", -- Print the file path with the matched lines
-            "--line-number",   -- Show line numbers
-            "--column",        -- Show column numbers
-            "--smart-case",    -- Smart case search
-
-            -- Exclude some patterns from search
-            "--glob=!**/.git/*",
-            "--glob=!**/.idea/*",
-            "--glob=!**/.vscode/*",
-            "--glob=!**/build/*",
-            "--glob=!**/dist/*",
-            "--glob=!**/yarn.lock",
-            "--glob=!**/package-lock.json",
-          }
-        },
-        pickers = {
-          find_files = {
-            hidden = true,
-            -- needed to exclude some files & dirs from general search
-            -- when not included or specified in .gitignore
-            find_command = {
-              "rg",
-              "--files",
-              "--hidden",
-              "--glob=!**/.git/*",
-              "--glob=!**/.idea/*",
-              "--glob=!**/.vscode/*",
-              "--glob=!**/build/*",
-              "--glob=!**/dist/*",
-              "--glob=!**/yarn.lock",
-              "--glob=!**/package-lock.json",
-            },
-          },
-        },
-      }
-    end,
-    keys = {
-      {
-        "<C-p>",
-        function()
-          require("telescope.builtin").find_files()
-        end,
-        desc = "Find Files",
-      },
-      {
-        "<Leader>g/",
-        function()
-          require("telescope.builtin").live_grep()
-        end,
-        desc = "Find text in project",
-      },
-      {
-        "<C-b>",
-        function()
-          require("telescope.builtin").buffers()
-        end,
-        desc = "Find text in project",
-      },
-      {
-        "gr",
-        function()
-          require("telescope.builtin").lsp_references()
-        end,
-        desc = "Find text in project",
-      },
-      {
-        "gd",
-        function()
-          require("telescope.builtin").lsp_definitions()
-        end,
-        desc = "Find text in project",
-      },
     },
   },
   {
@@ -154,6 +43,49 @@ return {
         sort_by = "tabs",
         separator_style = "slant",
       },
+    },
+  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   opts = {
+  --     -- suggestion = {
+  --     --   auto_trigger = false
+  --     -- }
+  --     copilot_model = "gpt-4o-copilot"
+  --   }
+  -- },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    opts = {
+      mappings = {
+        -- Reset the chat buffer
+        reset = {
+          normal = "<C-x>",
+          insert = "<C-x>",
+        },
+      }
+    },
+    keys = {
+    {
+      "<leader>am",
+      function()
+        return require("CopilotChat").select_model()
+      end,
+      desc = "Select Model (CopilotChat)",
+      mode = { "n", "v" },
+    },
+    }
+  },
+  {
+    "folke/snacks.nvim",
+    keys = {
+      { "<leader>n", false},
+      { "<leader>N", false},
+      { "<leader>h", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+      { "<leader>H", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+      { "<C-p>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+      { "<leader>g/", function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<C-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
     },
   },
   {
@@ -198,22 +130,67 @@ return {
     },
   },
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
+    "michaelrommel/nvim-silicon",
+    -- commit = "9fe6001dc8cad4d9c53bcfc8649e3dc76ffa169c",
+    lazy = true,
+    cmd = "Silicon",
+    main = "nvim-silicon",
     opts = {
-      mappings = {
-        -- Reset the chat buffer
-        reset = {
-          normal = "<C-x>",
-          insert = "<C-x>",
+      background = "#00C7FD",
+      -- From https://github.com/folke/tokyonight.nvim/blob/main/extras/sublime/tokyonight_night.tmTheme
+      theme = "/home/mcp/.config/silicon/themes/tokyonight_night.tmTheme",
+      line_offset = function(args)
+        return args.line1
+      end,
+      to_clipboard = true,
+      wslclipboard = "always",
+      wslclipboardcopy = "delete",
+      -- language = function()
+      --   if vim.bo.filetype == "bicep" then
+      --     return "json"
+      --   end
+      --   return vim.bo.filetype
+      -- end,
+      window_title = function()
+        return vim.fn.fnamemodify(
+          vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()),
+          ":t"
+        )
+      end,
+    },
+    keys = {
+      { "<leader>cs", function() require("nvim-silicon").clip() end, desc = "Copy code screenshot to clipboard", mode = { "v" } }
+    },
+  },
+  {
+    "danymat/neogen",
+    opts = {
+      languages = {
+        cs = {
+            template = {
+                annotation_convention = "xmldoc"
+                }
         },
-      }
+    }
     }
   },
   {
-    "folke/snacks.nvim",
-    keys = {
-      { "<leader>h", function() Snacks.notifier.show_history() end, desc = "Notification History" },
-      { "<leader>H", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        omnisharp = {
+          cmd = {
+            "OmniSharp",
+            "-z",
+            "--hostPID",
+            tostring(vim.fn.getpid()),
+            "DotNet:enablePackageRestore=false",
+            "--encoding",
+            "utf-8",
+            "--languageserver",
+          },
+        },
+      },
     },
   };
 }

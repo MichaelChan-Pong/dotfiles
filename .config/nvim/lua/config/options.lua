@@ -7,3 +7,9 @@ vim.wo.relativenumber = false
 
 vim.opt.mouse = ""
 vim.api.nvim_set_var("tmux_navigator_disable_when_zoomed", 1)
+
+vim.filetype.add({
+  pattern = {
+    ['.*.bicepparam'] = 'bicep-params',
+  },
+})

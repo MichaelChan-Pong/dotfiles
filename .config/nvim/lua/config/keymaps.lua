@@ -46,19 +46,9 @@ map("n", "<Leader>rc", ":VimuxInterruptRunner<CR>", opts)
 map("n", "<Leader>rw", ":VimuxCloseRunner<CR>", opts)
 map("n", "<Leader>ri", ":VimuxInspectRunner<CR>", opts)
 
--- Undotree
-map("n", "<Leader>u", ":UndotreeToggle<CR>", opts)
-
 -- Maximize
-LazyVim.ui.maximize():map("<leader>z")
-
--- Telescope
--- keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
--- keymap("n", "<Leader>g", ":Telescope live_grep<CR>", opts)
--- keymap("n", "<Leader>p", ":Telescope projects<CR>", opts)
--- keymap("n", "<C-b>", ":Telescope buffers<CR>", opts)
--- keymap("n", "gr", ":Telescope lsp_references<CR>", opts)
--- keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts)
+Snacks.toggle.zoom():map("<leader>z")
+Snacks.toggle.zen():map("<leader>Z")
 
 -- vim-table-mode
 map("n", "<Leader>\\", ":TableModeToggle<CR>", opts)

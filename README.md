@@ -18,5 +18,7 @@ Use zsh as your shell
 - [Lazydocker](https://github.com/jesseduffield/lazydocker)
 - [bat](https://github.com/sharkdp/bat)
 - [Dust](https://github.com/bootandy/dust) or [NCDU](https://dev.yorhel.nl/ncdu)
+- [Silicon](https://github.com/Aloxaf/silicon)
 
 - Font: [DroidSansM Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/DroidSansMono.zip)
+- Theme for Silicon: [Tokyonight](https://github.com/enkia/enki-theme/blob/master/scheme/Enki-Tokyo-Night.tmTheme)
