@@ -20,6 +20,8 @@ Use zsh as your shell
 - [Dust](https://github.com/bootandy/dust) or [NCDU](https://dev.yorhel.nl/ncdu)
 - [Silicon](https://github.com/Aloxaf/silicon)
 - [Bob](https://github.com/MordechaiHadad/bob)
+- [tpm](https://github.com/tmux-plugins/tpm)
+- [pyenv](https://github.com/pyenv/pyenv)
 
 - Font: [DroidSansM Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/DroidSansMono.zip)
 - Theme for Silicon: [Tokyonight](https://github.com/enkia/enki-theme/blob/master/scheme/Enki-Tokyo-Night.tmTheme)
