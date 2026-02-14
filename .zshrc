@@ -129,7 +129,6 @@ eval "$(pyenv init - zsh)"
 # Azure functions & .NET
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export PATH="$PATH:/home/mcp/.dotnet/"
 eval "$(dotnet completions script zsh)"
 
 # GitHub Copilot
