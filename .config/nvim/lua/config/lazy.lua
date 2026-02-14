@@ -13,8 +13,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- add extras
     -- { import = "lazyvim.plugins.extras.ai.copilot" },
-    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
-    -- { import = "lazyvim.plugins.extras.ai.sidekick" },
+    -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ai.sidekick" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },

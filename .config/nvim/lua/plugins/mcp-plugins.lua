@@ -175,6 +175,22 @@ return {
     }
   },
   {
+    "folke/sidekick.nvim",
+    keys = {
+      { "<Esc>", vim.cmd.stopinsert, desc = "Enter normal mode", mode = { "t" } },
+      { "<c-l>", vim.cmd.TmuxNavigateRight, desc = "Move to right window", mode = { "t" } }
+    }
+    -- opts = {
+    --   cli = {
+    --     mux = {
+    --       enabled = true,
+    --       backend = "tmux",
+    --       create = "split"
+    --     }
+    --   }
+    -- }
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {

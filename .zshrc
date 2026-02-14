@@ -117,8 +117,8 @@ eval "$(direnv hook zsh)"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 # # Autolaunch tmux
 # If not running interactively, do not do anything
@@ -129,3 +129,11 @@ eval "$(pyenv init -)"
 # Azure functions & .NET
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export PATH="$PATH:/home/mcp/.dotnet/"
+eval "$(dotnet completions script zsh)"
+
+# GitHub Copilot
+alias copilot-update="wget -qO- https://gh.io/copilot-install | bash"
+
+# Bob (Neovim version manager)
+# export PATH="$PATH:/home/mcp/.local/share/bob/nvim-bin"
