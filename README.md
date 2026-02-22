@@ -20,7 +20,7 @@ Use zsh as your shell
 - [Dust](https://github.com/bootandy/dust) or [NCDU](https://dev.yorhel.nl/ncdu)
 - [Silicon](https://github.com/Aloxaf/silicon)
 - [Bob](https://github.com/MordechaiHadad/bob)
-- [tpm](https://github.com/tmux-plugins/tpm) (don't forget to hit `<leader>I` after install!)
+- [tpm](https://github.com/tmux-plugins/tpm) (don't forget to hit `<leader>I` after install, and install plugin dependencies in repo README)
 - [pyenv](https://github.com/pyenv/pyenv)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
