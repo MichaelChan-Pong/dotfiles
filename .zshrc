@@ -97,7 +97,7 @@ export EDITOR=/usr/bin/nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 # Golang
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 
 # Python
 

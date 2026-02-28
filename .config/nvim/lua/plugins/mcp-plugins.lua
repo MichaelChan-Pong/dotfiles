@@ -78,13 +78,14 @@ return {
   },
   {
     "folke/snacks.nvim",
+    lazy = false,
     keys = {
       { "<leader>n", false},
       { "<leader>N", false},
       { "<leader>h", function() Snacks.notifier.show_history() end, desc = "Notification History" },
       { "<leader>H", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       { "<C-p>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-      { "<leader>g/", function() Snacks.picker.grep() end, desc = "Grep" },
+      -- { "<leader>g/", "<leader>/", desc = "Grep", remap = true },
       { "<C-b>", function() Snacks.picker.buffers() end, desc = "Buffers" },
     },
   },

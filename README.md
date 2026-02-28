@@ -24,6 +24,7 @@ Use zsh as your shell
 - [pyenv](https://github.com/pyenv/pyenv)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
+- [Freeze](https://github.com/charmbracelet/freeze/)
 - [luarocks](https://luarocks.org/#quick-start)
 - [Ghostty](https://ghostty.org/)
 - curl

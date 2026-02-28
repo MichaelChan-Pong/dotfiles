@@ -1,0 +1,23 @@
+#!/bin/bash
+# 1. Setup Linux Path
+FILE_PATH="/tmp/tmux_shot_$(date +%s).png"
+
+# 2. Run the capture
+# Make sure to replace /path/to/freeze with your actual path
+"$HOME/go/bin/freeze" - --language ansi -c user --output "$FILE_PATH"
+
+# 3. Convert /tmp path to a Windows-compatible Network Path
+# This converts /tmp/file.png -> \\wsl.localhost\Ubuntu\tmp\file.png
+WIN_PATH=$(wslpath -w "$FILE_PATH")
+
+# 4. Copy to Clipboard using PowerShell
+# We use -ExecutionPolicy Bypass to ensure the command runs
+# 4. Copy to Windows Clipboard using the FileDropList method
+/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "
+    Add-Type -AssemblyName System.Windows.Forms;
+    \$fileList = New-Object System.Collections.Specialized.StringCollection;
+    \$fileList.Add('$WIN_PATH');
+    [System.Windows.Forms.Clipboard]::SetFileDropList(\$fileList);
+"
+
+/usr/bin/tmux display-message "Copied to Clipboard"
